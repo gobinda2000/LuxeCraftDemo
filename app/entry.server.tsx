@@ -3,7 +3,7 @@ import {
   type HydrogenRouterContextProvider,
 } from '@shopify/hydrogen';
 import type {EntryContext} from 'react-router';
-import {handleRequest as handleRenderRequest} from '@vercel/react-router/entry.server';
+import {handleRequest as handleRenderRequest} from '~/lib/vercel-entry.server.local';
 
 export default async function handleRequest(
   request: Request,
@@ -30,11 +30,7 @@ export default async function handleRequest(
     {
       nonce,
       onError: console.error,
-      // The local MiniOxygen renderer consumes this extra option. Vercel
-      // ignores unknown options while using the same server entry.
       NonceProvider,
-    } as Parameters<typeof handleRenderRequest>[5] & {
-      NonceProvider: typeof NonceProvider;
     },
   );
 }
