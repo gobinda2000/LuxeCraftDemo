@@ -1,4 +1,4 @@
-import {renderToReadableStream} from 'react-dom/server';
+import {renderToReadableStream} from 'react-dom/server.browser';
 import {ServerRouter, type AppLoadContext, type EntryContext} from 'react-router';
 import type {ComponentType, ReactNode} from 'react';
 import type {RenderToReadableStreamOptions} from 'react-dom/server';
